@@ -1,0 +1,37 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Laravel dependencies
+**/vendor/
+
+# React dependencies
+**/node_modules/
+
+# Laravel logs and cache
+**/storage/logs/*
+**/storage/framework/cache/*
+**/storage/framework/sessions/*
+**/storage/framework/views/*
+
+# User uploaded files
+smart-asset-backend/storage/app/public/*
+
+# Frontend build
+**/dist/
+
+# Laravel generated files
+**/bootstrap/cache/*.php
+
+# Database files
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db

@@ -1,0 +1,197 @@
+/* Shared visual language for every workspace screen. */
+#root {
+    min-height: 100vh;
+}
+
+body {
+    background: #f4f7f5;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    transition: color 160ms ease, background-color 160ms ease,
+        border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgb(16 126 87 / 22%);
+    outline-offset: 2px;
+}
+
+/* Sidebar */
+aside {
+    box-shadow: 8px 0 28px rgb(21 44 33 / 3%);
+}
+
+aside nav button {
+    min-height: 44px;
+}
+
+/* Keep the top bar calm and let the content breathe. */
+header {
+    box-shadow: 0 1px 0 rgb(25 55 40 / 3%);
+}
+
+main {
+    animation: page-enter 240ms ease-out both;
+}
+
+main > div > .rounded-2xl,
+main .grid > .rounded-2xl,
+main .space-y-5 > .rounded-2xl {
+    border-color: #e5ece7;
+    box-shadow: 0 5px 20px rgb(24 48 34 / 3%);
+}
+
+main table th {
+    letter-spacing: .08em;
+}
+
+main tbody tr:hover {
+    background-color: #f7faf8;
+}
+
+.success-toast {
+    position: fixed;
+    animation: toast-enter 240ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.success-toast::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #059669, #6ee7b7);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: toast-progress 3.5s linear both;
+}
+
+input,
+select,
+textarea {
+    border-color: #dce6df !important;
+    border-radius: 10px !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa9a0;
+}
+
+button[class*="bg-emerald-700"] {
+    box-shadow: 0 4px 10px rgb(4 120 87 / 12%);
+}
+
+button[class*="bg-emerald-700"]:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 15px rgb(4 120 87 / 18%);
+}
+
+@keyframes page-enter {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toast-enter {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toast-progress {
+    to { transform: scaleX(1); }
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .min-h-screen {
+    background-color: #0d1511 !important;
+    color: #e5eee9;
+}
+
+html[data-theme="dark"] [class*="bg-white"] {
+    background-color: #151f1b !important;
+}
+
+html[data-theme="dark"] [class*="bg-gray-50"],
+html[data-theme="dark"] [class*="bg-gray-100"] {
+    background-color: #1c2923 !important;
+}
+
+html[data-theme="dark"] [class*="border-gray-"],
+html[data-theme="dark"] [class*="border-emerald-100"] {
+    border-color: #2b3a32 !important;
+}
+
+html[data-theme="dark"] [class*="text-gray-900"],
+html[data-theme="dark"] [class*="text-gray-800"],
+html[data-theme="dark"] [class*="text-gray-700"] {
+    color: #e5eee9 !important;
+}
+
+html[data-theme="dark"] [class*="text-gray-600"],
+html[data-theme="dark"] [class*="text-gray-500"],
+html[data-theme="dark"] [class*="text-gray-400"] {
+    color: #a6b6ac !important;
+}
+
+html[data-theme="dark"] [class*="bg-emerald-50"],
+html[data-theme="dark"] [class*="bg-green-100"] {
+    background-color: #173629 !important;
+}
+
+html[data-theme="dark"] [class*="text-emerald-800"],
+html[data-theme="dark"] [class*="text-emerald-700"],
+html[data-theme="dark"] [class*="text-green-800"] {
+    color: #a8e4c5 !important;
+}
+
+html[data-theme="dark"] [class*="bg-blue-50"] { background-color: #182d40 !important; }
+html[data-theme="dark"] [class*="bg-amber-50"] { background-color: #382f1b !important; }
+html[data-theme="dark"] [class*="bg-violet-50"] { background-color: #2b2440 !important; }
+html[data-theme="dark"] [class*="bg-red-50"] { background-color: #3b2222 !important; }
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+    background-color: #111a16 !important;
+    border-color: #34453b !important;
+    color: #e5eee9 !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #82948a;
+}
+
+html[data-theme="dark"] main tbody tr:hover {
+    background-color: #1a2821;
+}
+
+@media (max-width: 640px) {
+    aside {
+        box-shadow: 16px 0 40px rgb(12 30 20 / 15%);
+    }
+
+    main {
+        padding-bottom: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
